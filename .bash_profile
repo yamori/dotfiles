@@ -10,7 +10,11 @@ function cd {
   RET=$?
   if [ -d .git ]; then
     echo " Git project: getting branches..."
-    git branch -v -a
+	if ! [ -x "$(command -v git)" ]; then
+	  echo "  ...argh, you don't have git installed"
+	else
+	  git branch -v -a
+	fi
   fi;
   return $RET
 }
