@@ -29,3 +29,12 @@ grepp() {
   grep --color=always -A 2 -B 2 -irn $1 ${variable2}
 }
 
+# When there's a lot of git pushing
+gitpush() {
+   # Collapsing the git push.
+    git add .
+    git commit -m "$1"
+   git push
+    echo ""
+    echo "git add, git commit, git pushed!!"
+}
