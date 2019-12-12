@@ -18,3 +18,14 @@ function cd {
   fi;
   return $RET
 }
+
+# Handy wrap of grep
+grepp() {
+  # For easier grepping: preceeding and following lines, line numbers, ignore case, recursive
+  #   Defaults to current directory
+  #   Ex: grepp query_term ~/dir1      (last param optional)
+  variable2=${2:-"."}
+  echo ${variable2}
+  grep --color=always -A 2 -B 2 -irn $1 ${variable2}
+}
+
